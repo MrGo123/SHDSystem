@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.zy68.dao.ProductDao">
+
+    <resultMap type="top.zy68.entity.Product" id="ProductMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="price" column="price" jdbcType="INTEGER"/>
+        <result property="imageUrl" column="image_name" jdbcType="VARCHAR"/>
+        <result property="type" column="type" jdbcType="VARCHAR"/>
+        <result property="description" column="description" jdbcType="VARCHAR"/>
+        <result property="publishTime" column="publish_time" jdbcType="TIMESTAMP"/>
+        <result property="dealTime" column="deal_time" jdbcType="TIMESTAMP"/>
+        <result property="sellerId" column="seller_id" jdbcType="VARCHAR"/>
+        <result property="buyerId" column="buyer_id" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="ProductMap">
+        select id,
+               name,
+               price,
+               image_name,
+               type,
+               description,
+               publish_time,
+               deal_time,
+               seller_id,
+               buyer_id
+        from product
+        where id = #{id}
+    </select>
+
+    <!--查询多个-->
+    <select id="queryBySellerId" resultMap="ProductMap">
+        select id,
+               name,
+               price,
+               image_name,
+               type,
+               description,
+               publish_time,
+               deal_time,
+               seller_id,
+               buyer_id
+        from product
+        where seller_id = #{id}
+    </select>    <!--查询多个-->
+    <select id="queryByBuyerId" resultMap="ProductMap">
+        select id,
+               name,
+               price,
+               image_name,
+               type,
+               description,
+               publish_time,
+               deal_time,
+               seller_id,
+               buyer_id
+        from product
+        where buyer_id = #{id}
+    </select>
+    <!--查询多个-->
+    <select id="queryAll" resultMap="ProductMap">
+        select id,
+               name,
+               price,
+               image_name,
+               type,
+               description,
+               publish_time,
+               deal_time,
+               seller_id,
+               buyer_id
+        from product
+        where buyer_id is null or trim(deal_time)=''
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="ProductMap">
+        select
+        id, name, price, image_name, type, description, publish_time, deal_time, seller_id, buyer_id
+        from product
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="name != null and name != ''">
+                and name = #{name}
+            </if>
+            <if test="price != null">
+                and price = #{price}
+            </if>
+            <if test="imageUrl != null and imageUrl != ''">
+                and image_name = #{imageUrl}
+            </if>
+            <if test="type != null and type != ''">
+                and type = #{type}
+            </if>
+            <if test="description != null and description != ''">
+                and description = #{description}
+            </if>
+            <if test="publishTime != null">
+                and publish_time = #{publishTime}
+            </if>
+            <if test="dealTime != null">
+                and deal_time = #{dealTime}
+            </if>
+            <if test="sellerId != null and sellerId != ''">
+                and seller_id = #{sellerId}
+            </if>
+            <if test="buyerId != null and buyerId != ''">
+                and buyer_id = #{buyerId}
+            </if>
+        </where>
+        limit #{pageable.offset}, #{pageable.pageSize}
+    </select>
+
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from product
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="name != null and name != ''">
+                and name = #{name}
+            </if>
+            <if test="price != null">
+                and price = #{price}
+            </if>
+            <if test="imageUrl != null and imageUrl != ''">
+                and image_name = #{imageUrl}
+            </if>
+            <if test="type != null and type != ''">
+                and type = #{type}
+            </if>
+            <if test="description != null and description != ''">
+                and description = #{description}
+            </if>
+            <if test="publishTime != null">
+                and publish_time = #{publishTime}
+            </if>
+            <if test="dealTime != null">
+                and deal_time = #{dealTime}
+            </if>
+            <if test="sellerId != null and sellerId != ''">
+                and seller_id = #{sellerId}
+            </if>
+            <if test="buyerId != null and buyerId != ''">
+                and buyer_id = #{buyerId}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into product(name, price, image_name, type, description, publish_time, deal_time, seller_id, buyer_id)
+        values (#{name}, #{price}, #{imageUrl}, #{type}, #{description}, #{publishTime}, #{dealTime}, #{sellerId},
+                #{buyerId})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into product(name, price, image_name, type, description, publish_time, deal_time, seller_id, buyer_id)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.name}, #{entity.price}, #{entity.imageUrl}, #{entity.type}, #{entity.description},
+            #{entity.publishTime}, #{entity.dealTime}, #{entity.sellerId}, #{entity.buyerId})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into product(name, price, image_name, type, description, publish_time, deal_time, seller_id, buyer_id)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.name}, #{entity.price}, #{entity.imageUrl}, #{entity.type}, #{entity.description},
+            #{entity.publishTime}, #{entity.dealTime}, #{entity.sellerId}, #{entity.buyerId})
+        </foreach>
+        on duplicate key update
+        name = values(name),
+        price = values(price),
+        image_name = values(image_name),
+        type = values(type),
+        description = values(description),
+        publish_time = values(publish_time),
+        deal_time = values(deal_time),
+        seller_id = values(seller_id),
+        buyer_id = values(buyer_id)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update product
+        <set>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="price != null">
+                price = #{price},
+            </if>
+            <if test="imageUrl != null and imageUrl != ''">
+                image_name = #{imageUrl},
+            </if>
+            <if test="type != null and type != ''">
+                type = #{type},
+            </if>
+            <if test="description != null and description != ''">
+                description = #{description},
+            </if>
+            <if test="publishTime != null">
+                publish_time = #{publishTime},
+            </if>
+            <if test="dealTime != null">
+                deal_time = #{dealTime},
+            </if>
+            <if test="sellerId != null and sellerId != ''">
+                seller_id = #{sellerId},
+            </if>
+            <if test="buyerId != null and buyerId != ''">
+                buyer_id = #{buyerId},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete
+        from product
+        where id = #{id}
+    </delete>
+
+</mapper>
+

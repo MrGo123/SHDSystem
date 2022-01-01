@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1",
+    "name": "书包",
+    "price": "120",
+    "imageName": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimgx.xiawu.com%2Fxzimg%2Fi4%2Fi4%2F2473866184%2FTB2VESTXNjxQeBjy1zbXXbqApXa_%21%212473866184.jpg&refer=http%3A%2F%2Fimgx.xiawu.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1642908591&t=38f7523c41df70658a5c2b8b0d8ea6a7",
+    "type": "生活用品",
+    "description": "书包真不戳",
+    "publishTime": "2021-12-31 20:32:04",
+    "dealTime": "2021-12-31 20:32:04",
+    "sellerId": "123456",
+    "buyerId": "223456"
+  },
+  {
+    "id": "2",
+    "name": "电脑",
+    "price": "19990",
+    "imageName": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimgx.xiawu.com%2Fxzimg%2Fi4%2Fi4%2F2473866184%2FTB2VESTXNjxQeBjy1zbXXbqApXa_%21%212473866184.jpg&refer=http%3A%2F%2Fimgx.xiawu.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1642908591&t=38f7523c41df70658a5c2b8b0d8ea6a7",
+    "type": "电子设备",
+    "description": "电脑真不戳",
+    "publishTime": "2021-12-31 20:32:04",
+    "dealTime": "2021-12-31 20:32:04",
+    "sellerId": "123456",
+    "buyerId": "223456"
+  },
+  {
+    "id": "1",
+    "name": "name",
+    "price": "120",
+    "imageName": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimgx.xiawu.com%2Fxzimg%2Fi4%2Fi4%2F2473866184%2FTB2VESTXNjxQeBjy1zbXXbqApXa_%21%212473866184.jpg&refer=http%3A%2F%2Fimgx.xiawu.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1642908591&t=38f7523c41df70658a5c2b8b0d8ea6a7",
+    "type": "生活用品",
+    "description": "真不戳",
+    "publishTime": "2021-12-31 20:32:04",
+    "dealTime": "2021-12-31 20:32:04",
+    "sellerId": "123456",
+    "buyerId": "223456"
+  },
+  {
+    "id": "1",
+    "name": "name",
+    "price": "120",
+    "imageName": "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimgx.xiawu.com%2Fxzimg%2Fi4%2Fi4%2F2473866184%2FTB2VESTXNjxQeBjy1zbXXbqApXa_%21%212473866184.jpg&refer=http%3A%2F%2Fimgx.xiawu.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1642908591&t=38f7523c41df70658a5c2b8b0d8ea6a7",
+    "type": "生活用品",
+    "description": "真不戳",
+    "publishTime": "2021-12-31 20:32:04",
+    "dealTime": "2021-12-31 20:32:04",
+    "sellerId": "123456",
+    "buyerId": "223456"
+  }
+]

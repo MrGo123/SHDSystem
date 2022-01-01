@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">SHDSystem</string>
+    <string name="textfild_label">label</string>
+    <string name="content_description_media">description</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">管理</string>
+    <string name="title_notifications">我的</string>
+
+    <!--    login User -->
+    <string name="shared_preference_file_name">shdsystem_login_user</string>
+    <string name="login_user_phone">login_phone</string>
+    <string name="login_user_password">login_password</string>
+    <string name="login_remember_password">login_remember_password</string>
+</resources>

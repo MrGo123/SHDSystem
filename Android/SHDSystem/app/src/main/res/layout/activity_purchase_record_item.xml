@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.user.PurchaseRecordItemActivity">
+    <!--        商品图片-->
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/purchase_record_item_product_image"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="?attr/colorPrimaryDark"
+        android:scaleType="centerCrop"
+        android:src="@drawable/image0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/purchase_record_item_product_image">
+
+        <!--商品名称-->
+        <TextView
+            android:id="@+id/purchase_record_item_product_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="名称"
+            android:textAlignment="center"
+            android:textAppearance="?attr/textAppearanceSubtitle2" />
+
+        <!--商品价格-->
+        <TextView
+            android:id="@+id/purchase_record_item_product_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="价格"
+            android:textAlignment="center"
+            android:textAppearance="?attr/textAppearanceBody2" />
+        <!--商品类型-->
+        <TextView
+            android:id="@+id/purchase_record_item_product_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="类型"
+            android:textAlignment="center"
+            android:textAppearance="?attr/textAppearanceBody2" />
+        <!--商品描述-->
+        <TextView
+            android:id="@+id/purchase_record_item_product_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="描述"
+            android:textAlignment="center"
+            android:textAppearance="?attr/textAppearanceBody2" />
+
+        <!-- 发布时间-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/detail_product_publish_time"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="发布时间"-->
+        <!--            android:textAlignment="center"-->
+        <!--            android:textAppearance="?attr/textAppearanceBody2" />-->
+        <!-- 卖家名称-->
+        <TextView
+            android:id="@+id/purchase_record_item_seller_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="卖家名称"
+            android:textAlignment="center"
+            android:textAppearance="?attr/textAppearanceBody2" />
+        <!-- 卖家地址-->
+        <TextView
+            android:id="@+id/purchase_record_item_seller_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="卖家发布地址"
+            android:textAlignment="center"
+            android:textAppearance="?attr/textAppearanceBody2" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

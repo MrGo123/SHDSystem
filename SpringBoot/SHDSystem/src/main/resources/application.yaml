@@ -1,0 +1,35 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost/shdsystemdb?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  servlet:
+    multipart:
+      max-file-size: 50MB # 单个文件最大限制
+      max-request-size: 100MB # 总数据大小限制
+
+server:
+  servlet:
+    context-path: /
+  port: 9001
+  tomcat:
+    max-http-form-post-size: -1 # 取消最大post上传限制
+
+# 文件上传位置
+file-path: F:/IdeaProjects/SHDSystem/src/main/resources/image/
+
+github:
+  bucket:
+    # 配置仓库所属的用户名（如果是自己创建的，就是自己的用户名）
+    user: "springboot-community"
+    # 配置仓库名称
+    repository: "twitter-bucket"
+    # 配置自己的acccessToken
+    access-token: "996e748cb47117adbf3**********"
+    url: "https://cdn.jsdelivr.net/gh/${github.bucket.user}/${github.bucket.repository}/"
+    api: "https://api.github.com/repos/${github.bucket.user}/${github.bucket.repository}/contents/"
+
+mybatis:
+  type-aliases-package: top.zy68.dao.*
+  mapper-locations: classpath:mapper/*.xml
